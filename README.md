@@ -122,7 +122,7 @@
 
      找到显示编译的systemc位置在哪的如下一段话：
 
-     ~~~
+     ~~~xml
      <property name="systemc.inc" value="YYY/include"/>
      <property name="systemc.lib" value="YYY/lib-linux64/libsystemc.a"/>
      ~~~
