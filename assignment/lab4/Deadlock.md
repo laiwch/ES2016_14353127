@@ -78,20 +78,19 @@
 
   3. windows下.bat批处理文件，放在java程序同一目录下双击运行
 
-     ~~~
-       cd /d %~dp0
-       @echo off
-       :start
-       set /a var+=1
-       echo %var%
-       java Deadlock
-       if %var% leq 10000 GOTO start
-       pause
-     ~~~
+       ~~~
+         cd /d %~dp0
+         @echo off
+         :start
+         set /a var+=1
+         echo %var%
+         java Deadlock
+         if %var% leq 10000 GOTO start
+         pause
+       ~~~
 
-  4. 调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
+  4.   调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
 
-     ​
 
 - 实验结果(死锁截图)
 
@@ -104,5 +103,3 @@
 - 实验感想
 
   通过本次实验，熟悉java文件的编译，了解了死锁的条件及产生。
-
-  ​
