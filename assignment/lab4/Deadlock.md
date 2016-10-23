@@ -10,78 +10,81 @@
 - 实验流程及解释
 
   1. Deadlock.java代码
-     ​在声明A、B两个类的时候，使用关键字synchronized。它用来修饰一个方法或者一段代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。当一个线程访问object的一个synchronized同步代码块或同步方法时，其他线程对object中所有其它synchronized同步代码块或同步方法的访问将被阻塞。
 
-  ```java
-  class A{
-  	synchronized void methonA(B b){
-        //进入该段代码时，对象b将被锁住
-  		b.last();
-  	}
-  	synchronized void last(){
-  		System.out.println("Inside A.last()");
-  	}
-  }
+     ​	在声明A、B两个类的时候，使用关键字synchronized。它用来修饰一个方法或者一段代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。当一个线程访问object的一个synchronized同步代码块或同步方法时，其他线程对object中所有其它synchronized同步代码块或同步方法的访问将被阻塞。
 
-  class B{
-  	synchronized void methodB(A a){
-        //进入该段代码时，对象a将被锁住
-  		a.last();
-  	}
-  	synchronized void last(){
-  		System.out.println("Inside B.last()");
-  	}
-  }
-  ```
+     ~~~java
+     class A{
+     	synchronized void methonA(B b){
+           //进入该段代码时，对象b将被锁住
+     		b.last();
+     	}
+     	synchronized void last(){
+     		System.out.println("Inside A.last()");
+     	}
+     }
 
-  主函数
+     class B{
+     	synchronized void methodB(A a){
+           //进入该段代码时，对象a将被锁住
+     		a.last();
+     	}
+     	synchronized void last(){
+     		System.out.println("Inside B.last()");
+     	}
+     }
+     ~~~
 
-  ```java
-  class Deadlock implements Runnable{
-    A a = new A();
-    B b = new B();
+     主函数
 
-    Deadlock(){
-      //构造函数
-        Thread t = new Thread(this);
-        int count = 20000;
+     ~~~java
+     class Deadlock implements Runnable{
+       A a = new A();
+       B b = new B();
 
-        t.start();//线程t开始
-        while(count --> 0);//等待count时长
-        a.methonA(b);
-    }
+       Deadlock(){
+         //构造函数
+           Thread t = new Thread(this);
+           int count = 20000;
 
-    public void run(){
-      //runnable运行时调用的方法
-        b.methodB(a);
-    }
-    public static void main(String args[]){
-      //主函数
-        new Deadlock();
-    }
-  }
-  ```
+           t.start();//线程t开始
+           while(count --> 0);//等待count时长
+           a.methonA(b);
+       }
 
-  ​	简单来说，也就是主线程运行methodA，同时线程t运行methodB，相当于同时去请求一个锁，必须是同时，然后相互把对方锁住，也就产生了死锁。由于时间上有时有先后顺序，无法成环，所以每次运行死锁停下的位置可能不同，本次实验产生死锁在第171次。
+       public void run(){
+         //runnable运行时调用的方法
+           b.methodB(a);
+       }
+       public static void main(String args[]){
+         //主函数
+           new Deadlock();
+       }
+     }
+     ~~~
+
+     ​	简单来说，也就是主线程运行methodA，同时线程t运行methodB，相当于同时去请求一个锁，必须是同时，然后相互把对方锁住，也就产生了死锁。由于时间上有时有先后顺序，无法成环，所以每次运行死锁停下的位置可能不同，本次实验产生死锁在第171次。
+
   2. 编译
-  ```
-  javac Deadlock.java
-  ```
+
+     ~~~
+      javac Deadlock.java
+     ~~~
+
   3. windows下.bat批处理文件，放在java程序同一目录下双击运行
 
-  ```
-  cd /d %~dp0
-  @echo off
-  :start
-  set /a var+=1
-  echo %var%
-  java Deadlock
-  if %var% leq 10000 GOTO start
-  pause
-  ```
-  
-  4. 调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
+     ~~~
+       cd /d %~dp0
+       @echo off
+       :start
+       set /a var+=1
+       echo %var%
+       java Deadlock
+       if %var% leq 10000 GOTO start
+       pause
+     ~~~
 
+  4. 调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
 
 - 实验结果(死锁截图)
 
