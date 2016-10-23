@@ -10,7 +10,7 @@
 - 实验流程及解释
 
   1. Deadlock.java代码
-  在声明A、B两个类的时候，使用关键字synchronized。它用来修饰一个方法或者一段代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。当一个线程访问object的一个synchronized同步代码块或同步方法时，其他线程对object中所有其它synchronized同步代码块或同步方法的访问将被阻塞。
+    在声明A、B两个类的时候，使用关键字synchronized。它用来修饰一个方法或者一段代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。当一个线程访问object的一个synchronized同步代码块或同步方法时，其他线程对object中所有其它synchronized同步代码块或同步方法的访问将被阻塞。
 
   ```java
   class A{
