@@ -7,7 +7,7 @@
 1. 修改example2，让3个square模块变成两个，tips：修改xml的iterator
 
     ![example2_dot](example2_dot.png)
-   ​	各进程功能定义与example1相同，不同在于example2架构包含3个square进程，结果为i^6。实验任务就是将架构中3个square改成2个，得到i^4。
+   ​        各进程功能定义与example1相同，不同在于example2架构包含3个square进程，结果为i^6。实验任务就是将架构中3个square改成2个，得到i^4。
 
    ~~~xml
    <!--example2.xml-->
@@ -99,9 +99,8 @@
    </processnetwork>
    ~~~
 
-   ​
-
-    输出结果 ![example2](example2.png)
+    输出结果
+    ![example2](example2.png)
 
 
 2.  修改example1，使其输出3次方数，tips：修改square.c
@@ -298,8 +297,8 @@
 
 * 实验感想
 
-  ​	由于在配置的时候编译过example1，再次编译输出没有变化，可以去到build\bin\main文件夹下把对应的example1文件夹删除，再次编译即可。
+  ​        由于在配置的时候编译过example1，再次编译输出没有变化，可以去到build\bin\main文件夹下把对应的example1文件夹删除，再次编译即可。
 
-  ​	通过本次实验，学会分析各个模块和系统架构的代码，对dol有一个初步的了解。
+  ​        通过本次实验，学会分析各个模块和系统架构的代码，对dol有一个初步的了解。
 
 
