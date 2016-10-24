@@ -7,7 +7,8 @@
 1. 修改example2，让3个square模块变成两个，tips：修改xml的iterator
 
     ![example2_dot](example2_dot.png)
-   ​        各进程功能定义与example1相同，不同在于example2架构包含3个square进程，结果为i^6。实验任务就是将架构中3个square改成2个，得到i^4。
+   
+   各进程功能定义与example1相同，不同在于example2架构包含3个square进程，结果为i^6。实验任务就是将架构中3个square改成2个，得到i^4。
 
    ~~~xml
    <!--example2.xml-->
@@ -100,6 +101,7 @@
    ~~~
 
     输出结果
+    
     ![example2](example2.png)
 
 
