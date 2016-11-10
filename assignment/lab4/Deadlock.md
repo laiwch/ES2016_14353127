@@ -89,7 +89,9 @@
          pause
        ~~~
 
-  4.   调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
+  4. 调节count使其发生死锁。count的值是为了等待线程t的初始化完成，使得主线程和线程t能同时运行methodA和methodB。
+
+     ​
 
 
 - 实验结果(死锁截图)

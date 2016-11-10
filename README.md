@@ -4,6 +4,8 @@
 
   ​         The distributed operation layer (DOL) is a software development framework to program parallel applications. The DOL allows to specify applications based on the Kahn process network model of computation and features a simulation engine based on SystemC. Moreover, the DOL provides an XML-based specification format to describe the implementation of a parallel application on a multi-processor systems, including binding and mapping.
 
+  ​	也就是说，DOL是一个软件开发框架，用于编写并行程序。DOL允许指明基于KPN计算模型的应用和描述基于SystemC的仿真引擎。而且，DOL给出基于XML特定格式来描述在多处理器系统的并行程序。
+
   ![image](https://github.com/laiwch/ES2016_14353127/raw/master/image_install/0.jpg)
 
   ​
